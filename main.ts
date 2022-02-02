@@ -128,11 +128,11 @@ namespace SCD30 {
             basic.pause(10)
             //serial.writeLine("waiting in: readMeasurement()")
         }
-        let buf = pins.createBuffer(18)
+        let buf = pins.createBuffer(15)
         let tbuf = pins.createBuffer(4)
         pins.i2cWriteNumber(0x61, 0x0300, NumberFormat.UInt16BE, false)
         basic.pause(10)
-        buf = pins.i2cReadBuffer(0x61, 18, false)
+        buf = pins.i2cReadBuffer(0x61, 15, false)
         
         //co2
         tbuf.setNumber(NumberFormat.Int8LE, 0, buf.getNumber(NumberFormat.UInt8LE, 0))
